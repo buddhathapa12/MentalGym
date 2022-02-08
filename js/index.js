@@ -142,6 +142,8 @@ window.addEventListener("DOMContentLoaded", function () {
     arousalBodyVideoCont.style.display = "block";
     arousalShowAnimationBtn.style.display = "none";
     arousalMinimzeAnimationBtn.style.display = "block";
+    ChooseItemText.innerHTML = "Choose Your Animation";
+    aurosalVideo.src = "";
     if (window.innerWidth < 768) {
       if (arousalChart != null)
         arousalChart.setSize(
@@ -196,6 +198,7 @@ window.addEventListener("DOMContentLoaded", function () {
       );
   });
 
+  var ChooseItemText = document.querySelector(".chosenItemText");
   // var PauseAurosalButton = document.querySelector("#PauseAurosalButton");
   var StartAurosalButton = document.querySelector("#StartAurosalButton");
   // PauseAurosalButton.addEventListener("click", () => {
@@ -399,7 +402,7 @@ window.addEventListener("DOMContentLoaded", function () {
   HeartRateHideAnimationBtn.click();
 
   var StartTempButton = document.querySelector("#StartTempButton");
-  var PauseTempButton = document.querySelector("#PauseTempButton");
+  //   var PauseTempButton = document.querySelector("#PauseTempButton");
   var TempShowAnimationBtn = document.querySelector("#TempShowAnimationBtn");
   var TempHideAnimationBtn = document.querySelector("#TempHideAnimationBtn");
   var TempBody2 = document.querySelector("#TempBody2");
@@ -414,23 +417,25 @@ window.addEventListener("DOMContentLoaded", function () {
 
   StartTempButton.addEventListener("click", () => {
     TempRunning = true;
-    StartTempButton.style.display = "none";
-    PauseTempButton.style.display = "block";
+    // StartTempButton.style.display = "none";
+    // PauseTempButton.style.display = "block";
   });
-  PauseTempButton.addEventListener("click", () => {
-    TempRunning = false;
-    StartTempButton.style.display = "block";
-    PauseTempButton.style.display = "none";
-    if (TempVideo.style.display != "none") TempVideo.pause();
-    else
-      TempIframe.contentWindow.postMessage(
-        '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
-        "*"
-      );
-  });
+  //   PauseTempButton.addEventListener("click", () => {
+  //     TempRunning = false;
+  //     StartTempButton.style.display = "block";
+  //     PauseTempButton.style.display = "none";
+  //     if (TempVideo.style.display != "none") TempVideo.pause();
+  //     else
+  //       TempIframe.contentWindow.postMessage(
+  //         '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+  //         "*"
+  //       );
+  //   });
 
   TempShowAnimationBtn.addEventListener("click", () => {
     TempBody2.style.display = "block";
+    ChooseItemText.innerHTML = "Choose Your Animation";
+    TempVideo.src = "";
     if (window.innerWidth < 768) {
       if (tempChart != null)
         tempChart.setSize(
