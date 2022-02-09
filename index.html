@@ -152,7 +152,7 @@
                 <div class="aurosalAnimVideo">
                     <div class="arousalvideoChooserDropDown videoChooserDropDown">
                         <div class="chosenItem">
-                            <div class="chosenItemText">Choose Your Animation</div>
+                            <div class="chosenItemText" id="arousalChosenItemText">Choose Your Animation</div>
                             <div class="chosenItemArrow"><svg width="20" height="10"><path d="M0,0L10,10,L20,0"></path></svg></div>
                         </div>
                         <div class="dropDownContainer">
@@ -264,7 +264,15 @@
                         <h6>SEC</h6>
                     </div>
                     <div style="display: flex; flex-direction: column;">
-                        <div class="HeartRatePieChart" id="HeartRatePieChart"></div>
+                        <div class="HeartRatePieChart" id="HeartRatePieChart">
+                            <div class="Text">%lf dominant</div>
+                            <div class="battery">
+                                <div class="battery-head"></div>
+                                <div class="battery-body">
+                                    <div class="charge" id="charge"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="heartRatelfdomiValue"></div>
                     </div>
                     <div class="HeartRateBarGraph" id="HeartRateBarGraph"></div>
@@ -461,7 +469,7 @@
             <div class="TempVideo">
                 <div class="arousalvideoChooserDropDown videoChooserDropDown">
                     <div class="chosenItem">
-                        <div class="chosenItemText">Choose Your Animation</div>
+                        <div class="chosenItemText" id="tempChosenItemText">Choose Your Animation</div>
                         <div class="chosenItemArrow"><svg width="20" height="10"><path d="M0,0L10,10,L20,0"></path></svg></div>
                     </div>
                     <div class="dropDownContainer">

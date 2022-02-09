@@ -22,6 +22,8 @@ var iframeLoaded = false;
 var lastReadMessage = 0;
 var curActive = -1;
 var arousalChart = null;
+
+var Charge = document.querySelector("#charge");
 window.addEventListener("DOMContentLoaded", function () {
   var firstVideo = document.querySelector("#firstVideo");
   var secondVideo = document.querySelector("#secondVideo");
@@ -142,7 +144,7 @@ window.addEventListener("DOMContentLoaded", function () {
     arousalBodyVideoCont.style.display = "block";
     arousalShowAnimationBtn.style.display = "none";
     arousalMinimzeAnimationBtn.style.display = "block";
-    ChooseItemText.innerHTML = "Choose Your Animation";
+    ArousalChoseItemText.innerHTML = "Choose Your Animation";
     aurosalVideo.src = "";
     if (window.innerWidth < 768) {
       if (arousalChart != null)
@@ -198,7 +200,7 @@ window.addEventListener("DOMContentLoaded", function () {
       );
   });
 
-  var ChooseItemText = document.querySelector(".chosenItemText");
+  var ArousalChoseItemText = document.querySelector("#arousalChosenItemText");
   // var PauseAurosalButton = document.querySelector("#PauseAurosalButton");
   var StartAurosalButton = document.querySelector("#StartAurosalButton");
   // PauseAurosalButton.addEventListener("click", () => {
@@ -432,9 +434,10 @@ window.addEventListener("DOMContentLoaded", function () {
   //       );
   //   });
 
+  var TempChoseItemText = document.querySelector("#tempChosenItemText");
   TempShowAnimationBtn.addEventListener("click", () => {
     TempBody2.style.display = "block";
-    ChooseItemText.innerHTML = "Choose Your Animation";
+    TempChoseItemText.innerHTML = "Choose Your Animation";
     TempVideo.src = "";
     if (window.innerWidth < 768) {
       if (tempChart != null)
@@ -740,19 +743,20 @@ function handleMessage(msg) {
         ],
       });
       var lfdominant = parseFloat((hrv_lf_dominantCount / (time / 1000)) * 100);
-      HeartRatePieChart.series[0].update(
-        {
-          data: [
-            {
-              y: lfdominant,
-            },
-            { y: 100 - lfdominant },
-          ],
-        },
-        true,
-        false,
-        false
-      );
+      Charge.style.height = lfdominant + "%";
+      // HeartRatePieChart.series[0].update(
+      //   {
+      //     data: [
+      //       {
+      //         y: lfdominant,
+      //       },
+      //       { y: 100 - lfdominant },
+      //     ],
+      //   },
+      //   true,
+      //   false,
+      //   false
+      // );
       heartRatelfdomiValue.innerHTML = lfdominant.toFixed(1);
 
       var lfdivhf = (lf / hf).toFixed(2);
@@ -1663,46 +1667,47 @@ function loadHRV() {
     ],
   });
   if (HeartRatePieChart != null) return;
-  HeartRatePieChart = Highcharts.chart("HeartRatePieChart", {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: "pie",
-      backgroundColor: "rgba(0,0,0,0)",
-      animation: false,
 
-      width: 100,
-      height: 150,
-    },
-    title: {
-      text: "%lf dominant",
-      style: {
-        color: "#0080FF",
-        fontSize: "14px",
-      },
-    },
-    series: [
-      {
-        name: "Value",
-        colorByPoint: true,
-        animation: false,
+  // HeartRatePieChart = Highcharts.chart("HeartRatePieChart", {
+  //   chart: {
+  //     plotBackgroundColor: null,
+  //     plotBorderWidth: null,
+  //     plotShadow: false,
+  //     type: "pie",
+  //     backgroundColor: "rgba(0,0,0,0)",
+  //     animation: false,
 
-        data: [
-          {
-            name: "%lf dominant",
-            y: 100.0,
-            color: "#90ed7d",
-          },
-          {
-            name: "",
-            y: 0,
-            color: "transparent",
-          },
-        ],
-      },
-    ],
-  });
+  //     width: 100,
+  //     height: 150,
+  //   },
+  //   title: {
+  //     text: "%lf dominant",
+  //     style: {
+  //       color: "#0080FF",
+  //       fontSize: "14px",
+  //     },
+  //   },
+  //   series: [
+  //     {
+  //       name: "Value",
+  //       colorByPoint: true,
+  //       animation: false,
+
+  //       data: [
+  //         {
+  //           name: "%lf dominant",
+  //           y: 100.0,
+  //           color: "#90ed7d",
+  //         },
+  //         {
+  //           name: "",
+  //           y: 0,
+  //           color: "transparent",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // });
 }
 var tempChart = null;
 var initTemp = null;
