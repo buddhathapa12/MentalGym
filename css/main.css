@@ -684,18 +684,6 @@ h3 {
       flex-wrap: wrap;
 }
 
-.HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateUpperCont .Text {
-  max-width: 100px;
-  color: #7fa5ac;
-  padding: 5px;
-}
-
-@media (max-width: 900px) {
-  .HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateUpperCont .Text {
-    max-width: unset;
-  }
-}
-
 .HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateUpperCont .Level {
   padding: 5px;
 }
@@ -783,6 +771,18 @@ h3 {
       -ms-flex: 1;
           flex: 1;
   margin-left: 15px;
+}
+
+.HeartRateCont .HeartRateBodyCont .HeartRateBody2 .Text {
+  width: "100%";
+  color: #7fa5ac;
+  padding: 5px;
+}
+
+@media (max-width: 900px) {
+  .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .Text {
+    max-width: unset;
+  }
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .rate {

@@ -434,14 +434,6 @@ $breakpoint-tablet: 900px;
         display: flex;
         flex: 2;
         flex-wrap: wrap;
-        .Text {
-          max-width: 100px;
-          color: #7fa5ac;
-          padding: 5px;
-          @media (max-width: $breakpoint-tablet) {
-            max-width: unset;
-          }
-        }
         .Level {
           padding: 5px;
           .head {
@@ -517,6 +509,14 @@ $breakpoint-tablet: 900px;
     .HeartRateBody2 {
       flex: 1;
       margin-left: 15px;
+      .Text {
+        width: "100%";
+        color: #7fa5ac;
+        padding: 5px;
+        @media (max-width: $breakpoint-tablet) {
+          max-width: unset;
+        }
+      }
       .rate {
         color: white;
         padding: 5px;
