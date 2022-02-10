@@ -1094,114 +1094,114 @@ $breakpoint-tablet: 900px;
   }
   .multiChannelbreathsCont {
     flex: 2;
-    .pacerText {
-      color: white;
-      margin-top: 15px;
-    }
-    .multiChannelPacerGraph {
-      margin: 20px 0px;
-      #multiChannelBreatheSVG {
-        #multiChannelBreathePath {
-          stroke: white;
-          fill: none;
-          stroke-width: 10px;
-        }
-      }
-    }
-    .breatheinoutText {
-      color: white;
-      display: flex;
-      width: 100%;
-      margin: 10px 0px;
-      .breathein,
-      .breatheout {
-        flex: 1;
-      }
-    }
-    .MultiHeartRatePacerIndicators {
-      display: flex;
-      font-size: 10px;
-      justify-content: space-between;
-      margin: 5px 0px;
-      .MultiHeartRatePacerIndicator {
-        background-color: #00062a;
-        color: white;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .MultiBreathButton,
-        .MultiBreatheVal {
-          font-size: 16px;
-        }
-        .MultiBreathButton {
-          &:hover {
-            opacity: 0.5;
-          }
-        }
-      }
-    }
-    .multiBreatheButtons {
-      flex: 2;
-      display: flex;
-      justify-content: center;
-      margin: 10px 0px;
-      .MultiHeartRatePacerStartButton,
-      .MultiHeartRatePacerStopButton,
-      .MultiAudioButton,
-      .GuidedButton,
-      .StopGuidedButton {
-        margin: 0px 10px;
-        background-color: #4472c4;
-        padding: 2px 15px;
-        border-radius: 5px;
-        user-select: none;
-        &:hover {
-          font-weight: 900;
-        }
-      }
-      .GuidedButton {
-        display: flex;
-        position: relative;
-        .GuidedArrow {
-          display: flex;
-          align-items: center;
-          padding-left: 10px;
-          transform-origin: center center;
-          &:hover {
-            transform: scale(1.3);
-          }
-        }
-        .GuidedLanguageSelector {
-          position: absolute;
-          background-color: #4472c4;
-          display: flex;
-          flex-direction: column;
-          bottom: -140%;
-          width: 100%;
-          left: 0;
-          display: none;
-          pointer-events: none;
-          box-shadow: 1px 1px 0px 1px rgba(0, 107, 139, 0.5);
-          z-index: 10;
-          div {
-            min-height: 20px;
-            text-align: center;
-            pointer-events: all;
-            padding: 5px;
-            &:hover {
-              background-color: rgba(0, 0, 0, 0.2);
-            }
-          }
-        }
-      }
-      .StopGuidedButton {
-        display: none;
-      }
-      .MultiHeartRatePacerStopButton {
-        display: none;
-      }
-    }
+    // .pacerText {
+    //   color: white;
+    //   margin-top: 15px;
+    // }
+    // .multiChannelPacerGraph {
+    //   margin: 20px 0px;
+    //   #multiChannelBreatheSVG {
+    //     #multiChannelBreathePath {
+    //       stroke: white;
+    //       fill: none;
+    //       stroke-width: 10px;
+    //     }
+    //   }
+    // }
+    // .breatheinoutText {
+    //   color: white;
+    //   display: flex;
+    //   width: 100%;
+    //   margin: 10px 0px;
+    //   .breathein,
+    //   .breatheout {
+    //     flex: 1;
+    //   }
+    // }
+    // .MultiHeartRatePacerIndicators {
+    //   display: flex;
+    //   font-size: 10px;
+    //   justify-content: space-between;
+    //   margin: 5px 0px;
+    //   .MultiHeartRatePacerIndicator {
+    //     background-color: #00062a;
+    //     color: white;
+    //     padding: 10px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     .MultiBreathButton,
+    //     .MultiBreatheVal {
+    //       font-size: 16px;
+    //     }
+    //     .MultiBreathButton {
+    //       &:hover {
+    //         opacity: 0.5;
+    //       }
+    //     }
+    //   }
+    // }
+    // .multiBreatheButtons {
+    //   flex: 2;
+    //   display: flex;
+    //   justify-content: center;
+    //   margin: 10px 0px;
+    //   .MultiHeartRatePacerStartButton,
+    //   .MultiHeartRatePacerStopButton,
+    //   .MultiAudioButton,
+    //   .GuidedButton,
+    //   .StopGuidedButton {
+    //     margin: 0px 10px;
+    //     background-color: #4472c4;
+    //     padding: 2px 15px;
+    //     border-radius: 5px;
+    //     user-select: none;
+    //     &:hover {
+    //       font-weight: 900;
+    //     }
+    //   }
+    //   .GuidedButton {
+    //     display: flex;
+    //     position: relative;
+    //     .GuidedArrow {
+    //       display: flex;
+    //       align-items: center;
+    //       padding-left: 10px;
+    //       transform-origin: center center;
+    //       &:hover {
+    //         transform: scale(1.3);
+    //       }
+    //     }
+    //     .GuidedLanguageSelector {
+    //       position: absolute;
+    //       background-color: #4472c4;
+    //       display: flex;
+    //       flex-direction: column;
+    //       bottom: -140%;
+    //       width: 100%;
+    //       left: 0;
+    //       display: none;
+    //       pointer-events: none;
+    //       box-shadow: 1px 1px 0px 1px rgba(0, 107, 139, 0.5);
+    //       z-index: 10;
+    //       div {
+    //         min-height: 20px;
+    //         text-align: center;
+    //         pointer-events: all;
+    //         padding: 5px;
+    //         &:hover {
+    //           background-color: rgba(0, 0, 0, 0.2);
+    //         }
+    //       }
+    //     }
+    //   }
+    //   .StopGuidedButton {
+    //     display: none;
+    //   }
+    //   .MultiHeartRatePacerStopButton {
+    //     display: none;
+    //   }
+    // }
     .pacerButtons {
       display: flex;
       flex-direction: row;

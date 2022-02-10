@@ -316,39 +316,39 @@ window.addEventListener("DOMContentLoaded", function () {
     renderBreatheCircle();
   });
 
-  var MultiHeartRatePacerStartButton = document.querySelector(
-    "#MultiHeartRatePacerStartButton"
-  );
-  var MultiHeartRatePacerStopButton = document.querySelector(
-    "#MultiHeartRatePacerStopButton"
-  );
-  MultiHeartRatePacerStartButton.addEventListener("click", () => {
-    MultiHeartRatePacerStopButton.style.display = "block";
-    MultiHeartRatePacerStartButton.style.display = "none";
-    curMultiBreatheLastTime = new Date();
-    MultibreathingInterval = setInterval(() => {
-      curMultiBreatheTime += (new Date() - curMultiBreatheLastTime) / 1000;
-      curMultiBreatheLastTime = new Date();
+  // var MultiHeartRatePacerStartButton = document.querySelector(
+  //   "#MultiHeartRatePacerStartButton"
+  // );
+  // var MultiHeartRatePacerStopButton = document.querySelector(
+  //   "#MultiHeartRatePacerStopButton"
+  // );
+  // MultiHeartRatePacerStartButton.addEventListener("click", () => {
+  //   //MultiHeartRatePacerStopButton.style.display = "block";
+  //   MultiHeartRatePacerStartButton.style.display = "none";
+  //   curMultiBreatheLastTime = new Date();
+  //   MultibreathingInterval = setInterval(() => {
+  //     curMultiBreatheTime += (new Date() - curMultiBreatheLastTime) / 1000;
+  //     curMultiBreatheLastTime = new Date();
 
-      if (curMultiBreatheTime > curMultiBreatheTotalTime) {
-        curMultiBreatheLastTime = new Date();
-        curMultiBreatheTime = 0;
-        //clearInterval(MultibreathingInterval)
-        renderMultiBreatheCircle();
-        //MultiHeartRatePacerStopButton.style.display = "none"
-        //MultiHeartRatePacerStartButton.style.display = "block"
-      }
-      renderMultiBreathePath();
-    }, 30);
-  });
-  MultiHeartRatePacerStopButton.addEventListener("click", () => {
-    MultiHeartRatePacerStopButton.style.display = "none";
-    MultiHeartRatePacerStartButton.style.display = "block";
+  //     if (curMultiBreatheTime > curMultiBreatheTotalTime) {
+  //       curMultiBreatheLastTime = new Date();
+  //       curMultiBreatheTime = 0;
+  //       //clearInterval(MultibreathingInterval)
+  //       renderMultiBreatheCircle();
+  //       //MultiHeartRatePacerStopButton.style.display = "none"
+  //       //MultiHeartRatePacerStartButton.style.display = "block"
+  //     }
+  //     renderMultiBreathePath();
+  //   }, 30);
+  // });
+  // MultiHeartRatePacerStopButton.addEventListener("click", () => {
+  //   MultiHeartRatePacerStopButton.style.display = "none";
+  //   MultiHeartRatePacerStartButton.style.display = "block";
 
-    curMultiBreatheTime = 0;
-    clearInterval(MultibreathingInterval);
-    renderMultiBreathePath();
-  });
+  //   curMultiBreatheTime = 0;
+  //   clearInterval(MultibreathingInterval);
+  //   renderMultiBreathePath();
+  // });
   //loadArousalAnim();
 
   if (window.addEventListener) {
@@ -575,7 +575,7 @@ window.addEventListener("DOMContentLoaded", function () {
   new videoDropDown(document.querySelector(".heartrateAnimVideo"));
   new videoDropDown(document.querySelector(".balanceAnimVideo"));
   new GuidedClass(document.querySelector(".HeartRatePacerButtons"));
-  new GuidedClass(document.querySelector("#MultiAudioButton"));
+  //new GuidedClass(document.querySelector("#MultiAudioButton"));
 });
 
 var isCelcius = true;
