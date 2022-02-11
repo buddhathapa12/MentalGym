@@ -262,7 +262,11 @@
                         <h1 id="RelaxationLevelValue"></h1>
                         <h6>SEC</h6>
                     </div>
-                    <div style="display: flex; flex-direction: column;">
+                    <div class="HeartRateBarGraph" id="HeartRateBarGraph"></div>
+                </div>
+                <div class="HeartRateLowerCont" id="HeartRateLowerCont">
+                    <div class="hrvChart" id="hrvChart"></div>
+                    <div class="batteryCont" style="display: flex; flex-direction: column;">
                         <div class="HeartRatePieChart" id="HeartRatePieChart">
                             <div class="Text">%lf dominant</div>
                             <div class="battery">
@@ -274,10 +278,6 @@
                         </div>
                         <div class="heartRatelfdomiValue"></div>
                     </div>
-                    <div class="HeartRateBarGraph" id="HeartRateBarGraph"></div>
-                </div>
-                <div class="HeartRateLowerCont" id="HeartRateLowerCont">
-
                 </div>
             </div>
             <div class="HeartRateBody2">
@@ -734,83 +734,14 @@
             </div>
         </div>
         <div class="multiChannelbreathsCont">
-            <!-- <div class="pacerText">Pacer Rate: <span id="pacerRateText">9.000</span><br />Target Rate: 6.000</div>
-            <div class="multiChannelPacerGraph" id="multiChannelPacerGraph">
-                <svg id="multiChannelBreatheSVG">
-                    <path stroke-linejoin="round" stroke-linecap="round" d="" id="multiChannelBreathePath" />
-                    <circle id="multiChannelcurBreatheCircle" cx="0" cy="0" r="10" fill="#0080ff" />
-                </svg>
-            </div> -->
             <div class="pacerButtons">
                 <div class="multilf">
                     <div class="MultiChannelBarGraph" id="MultiChannelBarGraph"></div>
                     <div class="multichannelbargraphvalue"></div>
                 </div>
                 <div class="HeartPacerSlider">
-                    <div class="SliderText">
-                        <div>Stress</div>
-                        <div>Calm</div>
-                    </div>
-                    <div class="MainSlider">
-                        <div class="SliderCircle" id="MultiSliderCircle"></div>
-                        <div class="SliderBar"></div>
-                    </div>
-                    <div class="SliderPercent" id="MultiSliderPercent">
-
-                    </div>
                 </div>
             </div>
-            <!-- <div class="breatheinoutText">
-                <div class="breathein">Breathe in..</div>
-                <div class="breatheout">Breathe out..</div>
-            </div> -->
-            <!-- <div class="MultiHeartRatePacerIndicators">
-                <div class="MultiHeartRatePacerIndicator">
-                    INHALE
-                    <div class="MultiBreathButton" id="MultiIncInhaleBtn"><i class="fas fa-chevron-up"></i></div>
-                    <div class="MultiBreatheVal" id="MultiInhaleVal">1</div>
-                    <div class="MultiBreathButton" id="MultiDecInhaleBtn"><i class="fas fa-chevron-down"></i></div>
-                </div>
-                <div class="MultiHeartRatePacerIndicator">
-                    HOLD
-                    <div class="MultiBreathButton" id="MultiIncHold1Btn"><i class="fas fa-chevron-up"></i></div>
-                    <div class="MultiBreatheVal" id="MultiHold1Val">3</div>
-                    <div class="MultiBreathButton" id="MultiDecHold1Btn"><i class="fas fa-chevron-down"></i></div>
-                </div>
-                <div class="MultiHeartRatePacerIndicator">
-                    EXHALE
-                    <div class="MultiBreathButton" id="MultiIncExhaleBtn"><i class="fas fa-chevron-up"></i></div>
-                    <div class="MultiBreatheVal" id="MultiExhaleVal">4</div>
-                    <div class="MultiBreathButton" id="MultiDecExhaleBtn"><i class="fas fa-chevron-down"></i></div>
-                </div>
-                <div class="MultiHeartRatePacerIndicator">
-                    HOLD
-                    <div class="MultiBreathButton" id="MultiIncHold2Btn"><i class="fas fa-chevron-up"></i></div>
-                    <div class="MultiBreatheVal" id="MultiHold2Val">2</div>
-                    <div class="MultiBreathButton" id="MultiDecHold2Btn"><i class="fas fa-chevron-down"></i></div>
-                </div>
-            </div> -->
-
-            <!-- <div class="multiBreatheButtons">
-                <div class="MultiHeartRatePacerStartButton" id="MultiHeartRatePacerStartButton">Start<br />-התחל
-                </div>
-                <div class="MultiHeartRatePacerStopButton" id="MultiHeartRatePacerStopButton">Stop<br />תפסיק
-                </div>
-                <div class="MultiAudioButton" id="MultiAudioButton">
-                    <div class="GuidedButton" data-lang="Herbrew">
-                        <div class="GuidedText">Guided<br/>מונחה</div>
-                        <div class="GuidedArrow"><svg width="10" height="5"><path d="M0,0L5,5,L10,0"></path></svg></div>
-                        <div class="GuidedLanguageSelector GuidedLanguage">
-                            <div class="Herbrew GuidedLanguage">Herbrew</div>
-                            <div class="English GuidedLanguage">English</div>
-                        </div>
-                    </div>
-                    <audio src="/audio/pacer.m4a" type="audio/mp4" class="HerbrewAudio"></audio>
-                    <audio src="/audio/pacerEnglish.m4a" type="audio/mp4" class="HerbrewEnglishAudio"></audio>
-                    <div class="StopGuidedButton">Stop Guided<br/>עצור</div>
-                </div>
-
-            </div> -->
 
         </div>
     </div>

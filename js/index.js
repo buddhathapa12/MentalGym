@@ -299,10 +299,7 @@ window.addEventListener("DOMContentLoaded", function () {
       if (curBreatheTime > curBreatheTotalTime) {
         curBreatheLastTime = new Date();
         curBreatheTime = 0;
-        //clearInterval(breathingInterval)
         renderMultiBreatheCircle();
-        //HeartRatePacerStopButton.style.pointerEvents = "none"
-        //HeartRatePacerStartButton.style.pointerEvents = "all"
       }
       renderBreatheCircle();
     }, 30);
@@ -315,41 +312,6 @@ window.addEventListener("DOMContentLoaded", function () {
     clearInterval(breathingInterval);
     renderBreatheCircle();
   });
-
-  // var MultiHeartRatePacerStartButton = document.querySelector(
-  //   "#MultiHeartRatePacerStartButton"
-  // );
-  // var MultiHeartRatePacerStopButton = document.querySelector(
-  //   "#MultiHeartRatePacerStopButton"
-  // );
-  // MultiHeartRatePacerStartButton.addEventListener("click", () => {
-  //   //MultiHeartRatePacerStopButton.style.display = "block";
-  //   MultiHeartRatePacerStartButton.style.display = "none";
-  //   curMultiBreatheLastTime = new Date();
-  //   MultibreathingInterval = setInterval(() => {
-  //     curMultiBreatheTime += (new Date() - curMultiBreatheLastTime) / 1000;
-  //     curMultiBreatheLastTime = new Date();
-
-  //     if (curMultiBreatheTime > curMultiBreatheTotalTime) {
-  //       curMultiBreatheLastTime = new Date();
-  //       curMultiBreatheTime = 0;
-  //       //clearInterval(MultibreathingInterval)
-  //       renderMultiBreatheCircle();
-  //       //MultiHeartRatePacerStopButton.style.display = "none"
-  //       //MultiHeartRatePacerStartButton.style.display = "block"
-  //     }
-  //     renderMultiBreathePath();
-  //   }, 30);
-  // });
-  // MultiHeartRatePacerStopButton.addEventListener("click", () => {
-  //   MultiHeartRatePacerStopButton.style.display = "none";
-  //   MultiHeartRatePacerStartButton.style.display = "block";
-
-  //   curMultiBreatheTime = 0;
-  //   clearInterval(MultibreathingInterval);
-  //   renderMultiBreathePath();
-  // });
-  //loadArousalAnim();
 
   if (window.addEventListener) {
     window.addEventListener("message", handleMessage, false);
@@ -505,67 +467,6 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  var MultiIncInhaleBtn = document.querySelector("#MultiIncInhaleBtn");
-  var MultiInhaleVal = document.querySelector("#MultiInhaleVal");
-  var MultiDecInhaleBtn = document.querySelector("#MultiDecInhaleBtn");
-  var MultiIncHold1Btn = document.querySelector("#MultiIncHold1Btn");
-  var MultiHold1Val = document.querySelector("#MultiHold1Val");
-  var MultiDecHold1Btn = document.querySelector("#MultiDecHold1Btn");
-  var MultiIncExhaleBtn = document.querySelector("#MultiIncExhaleBtn");
-  var MultiExhaleVal = document.querySelector("#MultiExhaleVal");
-  var MultiDecExhaleBtn = document.querySelector("#MultiDecExhaleBtn");
-  var MultiIncHold2Btn = document.querySelector("#MultiIncHold2Btn");
-  var MultiHold2Val = document.querySelector("#MultiHold2Val");
-  var MultiDecHold2Btn = document.querySelector("#MultiDecHold2Btn");
-
-  MultiInhaleVal.innerHTML = getCookie("multi_inhale");
-  MultiHold1Val.innerHTML = getCookie("multi_hold");
-  MultiExhaleVal.innerHTML = getCookie("multi_exhale");
-  MultiHold2Val.innerHTML = getCookie("multi_hold2");
-
-  MultiIncInhaleBtn.addEventListener("click", () => {
-    MultiInhaleVal.innerHTML = parseFloat(MultiInhaleVal.innerHTML) + 0.5;
-    setCookie("multi_inhale", MultiInhaleVal.innerHTML, 1000);
-
-    renderMultiBreathePath();
-  });
-  MultiDecInhaleBtn.addEventListener("click", () => {
-    MultiInhaleVal.innerHTML = parseFloat(MultiInhaleVal.innerHTML) - 0.5;
-    setCookie("multi_inhale", MultiInhaleVal.innerHTML, 1000);
-
-    renderMultiBreathePath();
-  });
-  MultiIncHold1Btn.addEventListener("click", () => {
-    MultiHold1Val.innerHTML = parseFloat(MultiHold1Val.innerHTML) + 0.5;
-    setCookie("multi_hold", MultiHold1Val.innerHTML, 1000);
-
-    renderMultiBreathePath();
-  });
-  MultiDecHold1Btn.addEventListener("click", () => {
-    MultiHold1Val.innerHTML = parseFloat(MultiHold1Val.innerHTML) - 0.5;
-    setCookie("multi_hold", MultiHold1Val.innerHTML, 1000);
-    renderMultiBreathePath();
-  });
-  MultiIncExhaleBtn.addEventListener("click", () => {
-    MultiExhaleVal.innerHTML = parseFloat(MultiExhaleVal.innerHTML) + 0.5;
-    setCookie("multi_exhale", MultiExhaleVal.innerHTML, 1000);
-    renderMultiBreathePath();
-  });
-  MultiDecExhaleBtn.addEventListener("click", () => {
-    MultiExhaleVal.innerHTML = parseFloat(MultiExhaleVal.innerHTML) - 0.5;
-    setCookie("multi_exhale", MultiExhaleVal.innerHTML, 1000);
-    renderMultiBreathePath();
-  });
-  MultiIncHold2Btn.addEventListener("click", () => {
-    MultiHold2Val.innerHTML = parseFloat(MultiHold2Val.innerHTML) + 0.5;
-    setCookie("multi_hold2", MultiHold2Val.innerHTML, 1000);
-    renderMultiBreathePath();
-  });
-  MultiDecHold2Btn.addEventListener("click", () => {
-    MultiHold2Val.innerHTML = parseFloat(MultiHold2Val.innerHTML) - 0.5;
-    setCookie("multi_hold2", MultiHold2Val.innerHTML, 1000);
-    renderMultiBreathePath();
-  });
   new audioClass(document.querySelector(".arousalButtons"));
   new audioClass(document.querySelector(".HeartRateButtons"));
   new audioClass(document.querySelector(".TempHeadCont"));
@@ -1037,23 +938,6 @@ function handleMessage(msg) {
           false
         );
     }
-    if (data.values[ind].v_p_p_e != null) {
-      var lfdivhf = (
-        parseFloat(data.values[ind].l_p_p_e) /
-        parseFloat(data.values[ind].h_p_p_e)
-      ).toFixed(2);
-      if (lfdivhf < 1.5) {
-        MultiSliderPercent.innerHTML = "0%";
-        MultiSliderCircle.style.left = "0%";
-      } else if (lfdivhf > 2) {
-        MultiSliderPercent.innerHTML = "100%";
-        MultiSliderCircle.style.left = "100%";
-      } else {
-        var pct = (((lfdivhf - 1.5) / 0.5) * 100).toFixed(2);
-        MultiSliderPercent.innerHTML = pct + "%";
-        MultiSliderCircle.style.left = pct + "%";
-      }
-    }
     var vlf = parseFloat(data.values[ind].v_p_p_e);
     var lf = parseFloat(data.values[ind].l_p_p_e);
     var hf = parseFloat(data.values[ind].h_p_p_e);
@@ -1130,54 +1014,10 @@ function renderMultiBreathePath() {
   var HeartRatePacerGraph = document.querySelector("#multiChannelPacerGraph");
   var BreatheSVG = document.querySelector("#multiChannelBreatheSVG");
   var BreathePath = document.querySelector("#multiChannelBreathePath");
-  var InhaleVal = parseFloat(
-    document.querySelector("#MultiInhaleVal").innerHTML
-  );
-  var Hold1Val = parseFloat(document.querySelector("#MultiHold1Val").innerHTML);
-  var ExhaleVal = parseFloat(
-    document.querySelector("#MultiExhaleVal").innerHTML
-  );
-  var Hold2Val = parseFloat(document.querySelector("#MultiHold2Val").innerHTML);
   curMultiBreatheTotalTime = InhaleVal + Hold1Val + Hold2Val + ExhaleVal;
-  document.querySelector("#pacerRateText").innerHTML = (
-    60 / curMultiBreatheTotalTime
-  ).toFixed(3);
   changeBreathePerMinute();
   var lineWidthDivBy2 = 10;
   var svgheight = 130;
-
-  var svgWidth = HeartRatePacerGraph.getBoundingClientRect().width;
-  BreatheSVG.setAttribute("height", svgheight);
-  BreatheSVG.setAttribute("width", svgWidth);
-
-  var breatheDivByWidth =
-    (svgWidth - lineWidthDivBy2 * 2) / curMultiBreatheTotalTime;
-  var path =
-    "M" +
-    lineWidthDivBy2 +
-    " " +
-    (svgheight - lineWidthDivBy2) +
-    " L" +
-    (breatheDivByWidth * InhaleVal + lineWidthDivBy2) +
-    " " +
-    lineWidthDivBy2 +
-    " L" +
-    breatheDivByWidth * (InhaleVal + Hold1Val) +
-    " " +
-    lineWidthDivBy2 +
-    " L" +
-    breatheDivByWidth * (InhaleVal + Hold1Val + ExhaleVal) +
-    " " +
-    (svgheight - lineWidthDivBy2) +
-    " " +
-    "L" +
-    breatheDivByWidth * (InhaleVal + Hold1Val + ExhaleVal + Hold2Val) +
-    " " +
-    (svgheight - lineWidthDivBy2);
-  BreathePath.setAttribute("d", path);
-  curBreatheTime = 0;
-
-  renderMultiBreatheCircle();
 }
 
 function renderMultiBreatheCircle() {
@@ -1520,7 +1360,7 @@ var hrvBar = null;
 var HeartRatePieChart = null;
 
 function loadHRV() {
-  hrvChart = Highcharts.stockChart("HeartRateLowerCont", {
+  hrvChart = Highcharts.stockChart("hrvChart", {
     title: {
       text: "Heart rate- דופק",
       style: {
@@ -1594,7 +1434,6 @@ function loadHRV() {
     chart: {
       type: "column",
       backgroundColor: "rgba(0,0,0,0)",
-      width: 200,
       animation: false,
     },
     xAxis: {
