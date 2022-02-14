@@ -87,7 +87,7 @@ window.addEventListener("DOMContentLoaded", function () {
               curActive = 0;
               time = 0;
               loadArousal();
-            } else if (index == 4) {
+            } else if (index == 3) {
               curActive = 4;
               time = 0;
               loadMultiChannel();
