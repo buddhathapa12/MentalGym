@@ -553,6 +553,10 @@ var bodyRelaxationRewardPoint = 0;
 var previousTemperatureValue = 0;
 var temporaryTemperatureValue = 0;
 
+var mindBodyBalancePoint = document.querySelector("#mindBodyBalancePoint");
+var mindBodyBalanceRewardPoint = 0;
+var setReward;
+
 ind = 0;
 lastHandled = false;
 var hev_lf_dominantCount = 0;
@@ -626,7 +630,7 @@ function handleMessage(msg) {
           );
         }
       } else if (arousalRewardPoint !== null && tempArousalValue < val) {
-        clearTimeout(arousalRewardPoint);
+        clearInterval(arousalRewardPoint);
       }
       previousTempArousalValue = tempArousalValue;
       tempArousalValue = val;
@@ -674,7 +678,13 @@ function handleMessage(msg) {
       var vlf = parseFloat(data.values[ind].v_p_p_e);
       var lf = parseFloat(data.values[ind].l_p_p_e);
       var hf = parseFloat(data.values[ind].h_p_p_e);
-      if (lf > hf && lf > vlf) hrv_lf_dominantCount++;
+      if (lf > hf && lf > vlf) {
+        hrv_lf_dominantCount++;
+        setReward = setInterval(mindBodyBalanceRewardPoint++, 10000);
+      }
+      if (setReward !== null && (lf < hf || lf < vlf)) {
+        clearInterval(setReward);
+      }
       hrvBar.series[0].update({
         data: [
           {
@@ -693,19 +703,7 @@ function handleMessage(msg) {
       });
       var lfdominant = parseFloat((hrv_lf_dominantCount / (time / 1000)) * 100);
       Charge.style.height = lfdominant + "%";
-      // HeartRatePieChart.series[0].update(
-      //   {
-      //     data: [
-      //       {
-      //         y: lfdominant,
-      //       },
-      //       { y: 100 - lfdominant },
-      //     ],
-      //   },
-      //   true,
-      //   false,
-      //   false
-      // );
+      mindBodyBalancePoint.innerHTML = mindBodyBalanceRewardPoint;
       heartRatelfdomiValue.innerHTML = lfdominant.toFixed(1);
 
       var lfdivhf = (lf / hf).toFixed(2);
