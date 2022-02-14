@@ -58,6 +58,32 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }, 1000);
 
+  var showAllGraphs = document.querySelector("#showAllGraphs");
+  showAllGraphs.addEventListener("click", function () {
+    index = 3;
+    curPage = index;
+    document.querySelector("[data-pageindex='" + index + "']").style.display =
+      "block";
+    history.pushState(
+      { state: curPage },
+      "State " + curPage,
+      "?state=" + curPage
+    );
+    requestAnimationFrame(function () {
+      document.querySelector(
+        "[data-pageindex='" + index + "']"
+      ).style.transform = "translateY(0vh)";
+      if (!document.querySelector(".Page").classList.contains("hidden")) {
+        document.querySelector(".Page").classList += " hidden";
+      }
+      if (index == 3) {
+        curActive = 4;
+        time = 0;
+        loadMultiChannel();
+        renderMultiBreathePath();
+      }
+    });
+  });
   var elems = document.querySelector(".TrainingOptions").children;
   for (var i = 0; i < elems.length; i++) {
     const index = i;
@@ -2034,7 +2060,7 @@ function goback() {
         '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
         "*"
       );
-  } else if (curPage == 3) {
+  } else if (curPage == 4) {
     clearInterval(bloodPressureInterval1);
     clearInterval(bloodPressureInterval2);
     document
@@ -2051,7 +2077,7 @@ function goback() {
         '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
         "*"
       );
-  } else if (curPage == 4) {
+  } else if (curPage == 3) {
   }
 }
 
