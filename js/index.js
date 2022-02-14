@@ -547,6 +547,12 @@ var mentalRelaxationPoint = document.querySelector("#mentalRelaxationPoint");
 var tempArousalValue = 0;
 var previousTempArousalValue = 0;
 var arousalRewardPoint;
+
+var bodyRelaxationPoint = document.querySelector("#bodyRelaxationPoint");
+var bodyRelaxationRewardPoint = 0;
+var previousTemperatureValue = 0;
+var temporaryTemperatureValue = 0;
+
 ind = 0;
 lastHandled = false;
 var hev_lf_dominantCount = 0;
@@ -753,11 +759,34 @@ function handleMessage(msg) {
               "*"
             );
         }
-        if (isCelcius)
-          tempvalue.innerHTML = (val / 100).toFixed(2) + " <sup>o</sup>C";
-        else
-          tempvalue.innerHTML =
-            (((val / 100) * 9) / 5 + 32).toFixed(2) + " <sup>o</sup>F";
+        if (isCelcius) {
+          var temperatureInCelcius = (val / 100).toFixed(2);
+          var previousTemperatureValueInCelcius = (
+            previousTemperatureValue / 100
+          ).toFixed(2);
+          if (temperatureInCelcius - previousTemperatureValueInCelcius >= 0.2) {
+            bodyRelaxationRewardPoint += 1;
+            console.log(bodyRelaxationRewardPoint);
+            previousTemperatureValue = val;
+          }
+          tempvalue.innerHTML = temperatureInCelcius + " <sup>o</sup>C";
+          bodyRelaxationPoint.innerHTML = bodyRelaxationRewardPoint;
+        } else {
+          var temperatureInFahrenheit = (((val / 100) * 9) / 5 + 32).toFixed(2);
+          var previousTemperatureValueInFahrenheit = (
+            ((previousTemperatureValue / 100) * 9) / 5 +
+            32
+          ).toFixed(2);
+          if (
+            temperatureInFahrenheit - previousTemperatureValueInFahrenheit >=
+            0.36
+          ) {
+            bodyRelaxationRewardPoint += 1;
+            previousTemperatureValue = val;
+          }
+          tempvalue.innerHTML = temperatureInFahrenheit + " <sup>o</sup>F";
+          bodyRelaxationPoint.innerHTML = bodyRelaxationRewardPoint;
+        }
         if (tempChart.series[0].data.length >= itemsCount) {
           tempChart.series[0].addPoint([time, val / 100], true, true, false);
           tempChart.series[1].addPoint(
@@ -776,6 +805,10 @@ function handleMessage(msg) {
           );
         }
       }
+      if (temporaryTemperatureValue < val) {
+        previousTemperatureValue = val;
+      }
+      var temporaryTemperatureValue = val;
       time += 1000;
     }
   } else if (curActive == 3) {
