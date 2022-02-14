@@ -22,6 +22,7 @@ var iframeLoaded = false;
 var lastReadMessage = 0;
 var curActive = -1;
 var arousalChart = null;
+var mentalRelaxationRewardPoint = 0;
 
 var Charge = document.querySelector("#charge");
 window.addEventListener("DOMContentLoaded", function () {
@@ -542,7 +543,10 @@ var BloodPressureBarGraphValue = document.querySelector(
   ".BloodPressureBarGraphValue"
 );
 var hrvVideoContainer = document.querySelector(".hrvVideoContainer");
-
+var mentalRelaxationPoint = document.querySelector("#mentalRelaxationPoint");
+var tempArousalValue = 0;
+var previousTempArousalValue = 0;
+var arousalRewardPoint;
 ind = 0;
 lastHandled = false;
 var hev_lf_dominantCount = 0;
@@ -608,7 +612,19 @@ function handleMessage(msg) {
         arousalChart.series[0].addPoint([time, val], true, true, false);
       else arousalChart.series[0].addPoint([time, val], true, false, false);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
-
+      if (tempArousalValue >= val) {
+        if (previousTempArousalValue < tempArousalValue) {
+          arousalRewardPoint = setInterval(
+            (mentalRelaxationRewardPoint += 0.5),
+            5000
+          );
+        }
+      } else if (arousalRewardPoint !== null && tempArousalValue < val) {
+        clearTimeout(arousalRewardPoint);
+      }
+      previousTempArousalValue = tempArousalValue;
+      tempArousalValue = val;
+      mentalRelaxationPoint.innerHTML = mentalRelaxationRewardPoint;
       time += 100;
     }
   } else if (curActive == 1) {
