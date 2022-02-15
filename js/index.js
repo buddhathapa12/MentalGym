@@ -544,18 +544,19 @@ var BloodPressureBarGraphValue = document.querySelector(
 );
 var hrvVideoContainer = document.querySelector(".hrvVideoContainer");
 var mentalRelaxationPoint = document.querySelector("#mentalRelaxationPoint");
-var tempArousalValue = 0;
-var previousTempArousalValue = 0;
-var arousalRewardPoint;
+// var tempArousalValue = 0;
+// var previousTempArousalValue = 0;
+var arousalRewardPoint = null;
 
 var bodyRelaxationPoint = document.querySelector("#bodyRelaxationPoint");
 var bodyRelaxationRewardPoint = 0;
 var previousTemperatureValue = 0;
 var temporaryTemperatureValue = 0;
+var greatestTempValue = 0;
 
 var mindBodyBalancePoint = document.querySelector("#mindBodyBalancePoint");
 var mindBodyBalanceRewardPoint = 0;
-var setReward;
+var setReward = null;
 
 ind = 0;
 lastHandled = false;
@@ -622,18 +623,19 @@ function handleMessage(msg) {
         arousalChart.series[0].addPoint([time, val], true, true, false);
       else arousalChart.series[0].addPoint([time, val], true, false, false);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
-      if (tempArousalValue >= val) {
-        if (previousTempArousalValue < tempArousalValue) {
-          arousalRewardPoint = setInterval(
-            (mentalRelaxationRewardPoint += 0.5),
-            5000
-          );
+      if (initArousal > val) {
+        if (arousalRewardPoint == null) {
+          arousalRewardPoint = setTimeout(() => {
+            mentalRelaxationRewardPoint += 0.5;
+            arousalRewardPoint = null;
+          }, 5000);
         }
-      } else if (arousalRewardPoint !== null && tempArousalValue < val) {
-        clearInterval(arousalRewardPoint);
+      } else if (arousalRewardPoint != null && initArousal < val) {
+        clearTimeout(arousalRewardPoint);
+        arousalRewardPoint = null;
       }
-      previousTempArousalValue = tempArousalValue;
-      tempArousalValue = val;
+      // previousTempArousalValue = tempArousalValue;
+      // tempArousalValue = val;
       mentalRelaxationPoint.innerHTML = mentalRelaxationRewardPoint;
       time += 100;
     }
@@ -680,10 +682,16 @@ function handleMessage(msg) {
       var hf = parseFloat(data.values[ind].h_p_p_e);
       if (lf > hf && lf > vlf) {
         hrv_lf_dominantCount++;
-        setReward = setInterval(mindBodyBalanceRewardPoint++, 10000);
+        if (setReward == null) {
+          setReward = setTimeout(() => {
+            mindBodyBalanceRewardPoint++;
+            setReward = null;
+          }, 10000);
+        }
       }
       if (setReward !== null && (lf < hf || lf < vlf)) {
         clearInterval(setReward);
+        setReward = null;
       }
       hrvBar.series[0].update({
         data: [
@@ -726,6 +734,9 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].tmp);
       if (initTemp == null) {
         initTemp = val;
+        initTempInCelcius = (initTemp / 100).toFixed(2);
+        initTempInFahrenheit = (((initTemp / 100) * 9) / 5 + 32).toFixed(2);
+        greatestTempValue = initTemp;
         if (isCelcius)
           tempvalue.innerHTML = (val / 100).toFixed(2) + " <sup>o</sup>C";
         else
@@ -759,28 +770,30 @@ function handleMessage(msg) {
         }
         if (isCelcius) {
           var temperatureInCelcius = (val / 100).toFixed(2);
-          var previousTemperatureValueInCelcius = (
-            previousTemperatureValue / 100
-          ).toFixed(2);
-          if (temperatureInCelcius - previousTemperatureValueInCelcius >= 0.2) {
-            bodyRelaxationRewardPoint += 1;
-            console.log(bodyRelaxationRewardPoint);
-            previousTemperatureValue = val;
+          if (val > greatestTempValue) {
+            greatestTempValue = val;
+            var greatestTempValueInCelcius = (greatestTempValue / 100).toFixed(
+              2
+            );
+            bodyRelaxationRewardPoint = (
+              (greatestTempValueInCelcius - initTempInCelcius) /
+              0.2
+            ).toFixed(0);
           }
           tempvalue.innerHTML = temperatureInCelcius + " <sup>o</sup>C";
           bodyRelaxationPoint.innerHTML = bodyRelaxationRewardPoint;
         } else {
           var temperatureInFahrenheit = (((val / 100) * 9) / 5 + 32).toFixed(2);
-          var previousTemperatureValueInFahrenheit = (
-            ((previousTemperatureValue / 100) * 9) / 5 +
-            32
-          ).toFixed(2);
-          if (
-            temperatureInFahrenheit - previousTemperatureValueInFahrenheit >=
-            0.36
-          ) {
-            bodyRelaxationRewardPoint += 1;
-            previousTemperatureValue = val;
+          if (val > greatestTempValue) {
+            greatestTempValue = val;
+            var greatestTempValueInFahrenheit = (
+              ((val / 100) * 9) / 5 +
+              32
+            ).toFixed(2);
+            bodyRelaxationRewardPoint = (
+              (greatestTempValueInFahrenheit - initTempInFahrenheit) /
+              0.36
+            ).toFixed(0);
           }
           tempvalue.innerHTML = temperatureInFahrenheit + " <sup>o</sup>F";
           bodyRelaxationPoint.innerHTML = bodyRelaxationRewardPoint;
@@ -1626,7 +1639,8 @@ var tempChart = null;
 var initTemp = null;
 var initHr = null;
 var initBp = null;
-
+var initTempInCelcius = null;
+var initTempInFahrenheit = null;
 function loadTemp() {
   tempChart = Highcharts.stockChart("TempGraph", {
     title: {
