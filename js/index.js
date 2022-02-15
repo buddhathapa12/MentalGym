@@ -1231,14 +1231,14 @@ function loadBloodPressure() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
@@ -1304,14 +1304,14 @@ function loadBloodPressure() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     title: {
       text: "Blood preassure-לחץ דם",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     yAxis: [
@@ -1329,7 +1329,7 @@ function loadBloodPressure() {
       {
         labels: {
           style: {
-            color: "#0080FF",
+            color: "#ffffff",
           },
         },
         title: {
@@ -1379,7 +1379,7 @@ function loadBloodPressure() {
       },
       {
         name: "Breaths per minute",
-        color: "#0080ff",
+        color: "#ffffff",
         data: [],
         yAxis: 1,
         type: "spline",
@@ -1401,7 +1401,7 @@ function loadBloodPressure() {
     title: {
       text: "%lf dominant",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
         fontSize: "14px",
       },
     },
@@ -1437,7 +1437,7 @@ function loadHRV() {
     title: {
       text: "Heart rate- דופק",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1445,20 +1445,20 @@ function loadHRV() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
         text: "",
       },
-      gridLineColor: "#FFF3",
+      gridLineColor: "#ffffff",
     },
     plotOptions: {
       series: {
@@ -1495,6 +1495,7 @@ function loadHRV() {
       {
         data: [],
         type: "spline",
+        color: "#ff0000",
       },
     ],
   });
@@ -1513,7 +1514,7 @@ function loadHRV() {
       type: "category",
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
@@ -1521,15 +1522,15 @@ function loadHRV() {
       title: {
         text: "",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
-      gridLineColor: "#FFF3",
+      gridLineColor: "#ffffff",
     },
     legend: {
       enabled: false,
@@ -1595,7 +1596,7 @@ function loadHRV() {
   //   title: {
   //     text: "%lf dominant",
   //     style: {
-  //       color: "#0080FF",
+  //       color: "#ffffff",
   //       fontSize: "14px",
   //     },
   //   },
@@ -1631,7 +1632,7 @@ function loadTemp() {
     title: {
       text: "",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1639,14 +1640,14 @@ function loadTemp() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
@@ -1690,6 +1691,7 @@ function loadTemp() {
         name: "Celcius",
         data: [],
         type: "spline",
+        color: "#ff0000",
       },
       {
         name: "Farenheit",
@@ -1708,7 +1710,7 @@ function loadArousal() {
     title: {
       text: "",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1717,26 +1719,26 @@ function loadArousal() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
         text: "Time reading in seconds",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
         text: "Arousal value",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       gridLineColor: "#FFF3",
@@ -1780,6 +1782,7 @@ function loadArousal() {
           enabled: false,
         },
         type: "spline",
+        color: "#ff0000",
       },
     ],
   });
@@ -1796,7 +1799,7 @@ function loadMultiChannel() {
     title: {
       text: "Arousal",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1811,7 +1814,7 @@ function loadMultiChannel() {
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
@@ -1867,7 +1870,7 @@ function loadMultiChannel() {
     title: {
       text: "Temperature",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1875,14 +1878,14 @@ function loadMultiChannel() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
@@ -1937,7 +1940,7 @@ function loadMultiChannel() {
     title: {
       text: "Beat",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
       },
     },
     xAxis: {
@@ -1945,14 +1948,14 @@ function loadMultiChannel() {
       labels: {
         format: "{value:%H:%M:%S}",
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
     },
     yAxis: {
       labels: {
         style: {
-          color: "#0080FF",
+          color: "#ffffff",
         },
       },
       title: {
@@ -2019,7 +2022,7 @@ function loadMultiChannel() {
     title: {
       text: "%lf dominant",
       style: {
-        color: "#0080FF",
+        color: "#ffffff",
         fontSize: "14px",
       },
     },

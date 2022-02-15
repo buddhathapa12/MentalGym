@@ -57,7 +57,7 @@ h3 {
 }
 
 .backButton i {
-  color: #0080ff;
+  color: white;
 }
 
 .backButton:hover {
@@ -67,7 +67,7 @@ h3 {
 
 #ArousalVal {
   text-align: center;
-  color: #0080ff;
+  color: white;
   height: 30px;
 }
 
@@ -208,7 +208,7 @@ h3 {
   transition: 0.5s ease;
   -webkit-transform: translateY(100vh);
           transform: translateY(100vh);
-  background-color: #193658;
+  background-color: #4fa2d2;
 }
 
 #arousalShowAnimationBtn {
@@ -295,7 +295,7 @@ h3 {
 }
 
 .BloodPressureCont .BloodPressureTitleCont .BloodPressureTitle {
-  color: #0080ff;
+  color: white;
   padding: 10px;
   width: 100%;
   -webkit-box-flex: 1;
@@ -516,7 +516,7 @@ h3 {
 }
 
 .BloodPressureCont .BloodPressureRow2 .BloodPressureIndicators .signalValues .singleCont .valueCont.lungcont {
-  color: #0080ff;
+  color: white;
 }
 
 .BloodPressureCont .BloodPressureRow2 .BloodPressureIndicators .signalValues .singleCont .valueCont .value {
@@ -533,7 +533,7 @@ h3 {
 }
 
 .BloodPressureCont .BloodPressureRow2 .BloodPressureIndicators .signalValues .singleCont .iconCont .fa-lungs {
-  color: #0080ff;
+  color: white;
 }
 
 .BloodPressureCont .BloodPressureRow2 .BloodPressureIndicators .signalValues .singleCont .iconCont i {
@@ -562,7 +562,7 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #0080ff;
+  color: white;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -583,7 +583,7 @@ h3 {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #0080ff;
+  background-color: white;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
@@ -600,7 +600,7 @@ h3 {
 .BloodPressureCont .BloodPressureRow2 .BloodPressureIndicators .HeartPacerSlider .SliderPercent {
   width: 100%;
   text-align: center;
-  color: #0080ff;
+  color: white;
 }
 
 .BloodPressureCont .BloodPressureRow2 .BloodPressureMainGraph {
@@ -643,7 +643,7 @@ h3 {
 }
 
 .HeartRateCont .HeartRateheader .heartRateTitleText {
-  color: #0080ff;
+  color: white;
   text-align: center;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -762,14 +762,14 @@ h3 {
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateLowerCont .batteryCont .HeartRatePieChart .Text {
-  color: #7fa5ac;
+  color: #ffffff;
   text-align: center;
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateLowerCont .batteryCont .HeartRatePieChart .battery-head {
   width: 30px;
   height: 10px;
-  background: #193658;
+  background: #4fa2d2;
   border: 2px solid rgba(0, 107, 139, 0.5);
   margin: 0 auto;
   border-top-right-radius: 8px;
@@ -779,7 +779,7 @@ h3 {
 .HeartRateCont .HeartRateBodyCont .HeartRateBody1 .HeartRateLowerCont .batteryCont .HeartRatePieChart .battery-body {
   width: 100px;
   height: 200px;
-  background: #193658;
+  background: #4fa2d2;
   border: 2px solid rgba(0, 107, 139, 0.5);
   position: relative;
   margin: 0 auto;
@@ -816,7 +816,7 @@ h3 {
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .Text {
   width: "100%";
-  color: #7fa5ac;
+  color: #ffffff;
   padding: 5px;
 }
 
@@ -990,7 +990,7 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #0080ff;
+  color: white;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -1011,7 +1011,7 @@ h3 {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #0080ff;
+  background-color: white;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
@@ -1028,7 +1028,7 @@ h3 {
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .HeartPacerSlider .SliderPercent {
   width: 100%;
   text-align: center;
-  color: #0080ff;
+  color: white;
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .videoCont {
@@ -1146,7 +1146,7 @@ h3 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: #0080ff;
+  color: white;
   text-align: center;
   padding: 10px;
   width: 100%;
@@ -1273,7 +1273,7 @@ h3 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: #0080ff;
+  color: white;
   padding: 5px 0px;
   text-align: center;
 }
@@ -1420,7 +1420,7 @@ h3 {
 
 .arousalSinglebutton .text {
   text-align: center;
-  color: #0080ff;
+  color: white;
 }
 
 .arousalSinglebutton .audioDropDownArrow {
@@ -1437,14 +1437,14 @@ h3 {
 .arousalSinglebutton .audioDropDownArrow svg {
   -webkit-transform-origin: center center;
           transform-origin: center center;
-  stroke: #0080ff;
-  fill: #0080ff;
+  stroke: white;
+  fill: white;
 }
 
 .arousalSinglebutton .audioDropDownContainer {
   position: absolute;
   width: 150px;
-  background-color: #193658;
+  background-color: #4fa2d2;
   bottom: -80px;
   z-index: 10;
   -webkit-box-shadow: 1px 1px 0px 1px rgba(0, 107, 139, 0.5);
@@ -1458,7 +1458,7 @@ h3 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #0080ff;
+  color: white;
 }
 
 .arousalSinglebutton .audioDropDownContainer div:hover {
@@ -1481,7 +1481,7 @@ h3 {
 .videoChooserDropDown .chosenItem {
   width: 100%;
   border: 1px solid #4472c4;
-  color: #0080ff;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1508,7 +1508,7 @@ h3 {
 }
 
 .videoChooserDropDown .chosenItem .chosenItemArrow {
-  stroke: #0080ff;
+  stroke: white;
   fill: none;
   padding: 0px 5px;
 }
@@ -1516,12 +1516,12 @@ h3 {
 .videoChooserDropDown .dropDownContainer {
   width: 100%;
   position: absolute;
-  color: #0080ff;
+  color: white;
   display: none;
   border: 1px solid #4472c4;
   -webkit-box-shadow: 1px 1px 0px 1px rgba(0, 107, 139, 0.5);
           box-shadow: 1px 1px 0px 1px rgba(0, 107, 139, 0.5);
-  background-color: #193658;
+  background-color: #4fa2d2;
   max-height: 70vh;
   overflow-y: auto;
   pointer-events: all;
@@ -1547,7 +1547,7 @@ h3 {
       -ms-flex: 1;
           flex: 1;
   background-color: rgba(255, 255, 255, 0);
-  color: #0080ff;
+  color: white;
   border: 0;
   pointer-events: none;
   outline: none;
@@ -1563,7 +1563,7 @@ h3 {
 .videoChooserDropDown .dropDownContainer div .gear {
   padding: 5px;
   height: calc(100%- 10px);
-  stroke: #0080ff;
+  stroke: white;
   width: 35px;
 }
 
@@ -1720,7 +1720,7 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #0080ff;
+  color: white;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -1741,7 +1741,7 @@ h3 {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #0080ff;
+  background-color: white;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
@@ -1758,7 +1758,7 @@ h3 {
 .multichannelCont .multiChannelbreathsCont .pacerButtons .HeartPacerSlider .SliderPercent {
   width: 100%;
   text-align: center;
-  color: #0080ff;
+  color: white;
 }
 
 .multichannelCont .multiChannelbreathsCont .pacerButtons .multilf {
@@ -1791,7 +1791,7 @@ h3 {
 }
 
 .svgConts svg {
-  fill: #0080ff;
+  fill: white;
 }
 
 .svgConts svg:hover {
@@ -1813,7 +1813,7 @@ h3 {
 .heartRatelfdomiValue,
 .multichannelbargraphvalue,
 .BloodPressureBarGraphValue {
-  color: #0080ff;
+  color: white;
   text-align: center;
 }
 
