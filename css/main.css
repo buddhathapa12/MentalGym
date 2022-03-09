@@ -208,7 +208,7 @@ h3 {
   transition: 0.5s ease;
   -webkit-transform: translateY(100vh);
           transform: translateY(100vh);
-  background-color: #4fa2d2;
+  background-color: #193658;
 }
 
 #arousalShowAnimationBtn {
@@ -815,7 +815,7 @@ h3 {
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .Text {
-  width: "100%";
+  width: '100%';
   color: #ffffff;
   padding: 5px;
 }

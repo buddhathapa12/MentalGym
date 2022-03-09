@@ -18,22 +18,22 @@ h3 {
 
 @font-face {
   font-family: OpenSansLight;
-  src: url("../fonts/OpenSans-Light.ttf");
+  src: url('../fonts/OpenSans-Light.ttf');
 }
 
 @font-face {
   font-family: CalibriBold;
-  src: url("../fonts/Calibri-Bold_9055.ttf");
+  src: url('../fonts/Calibri-Bold_9055.ttf');
 }
 
 @font-face {
   font-family: OpenSansBold;
-  src: url("../fonts/OpenSans-Bold.ttf");
+  src: url('../fonts/OpenSans-Bold.ttf');
 }
 
 @font-face {
   font-family: OpenSansRegular;
-  src: url("../fonts/OpenSans-Regular.ttf");
+  src: url('../fonts/OpenSans-Regular.ttf');
 }
 
 $breakpoint-tablet: 900px;
@@ -166,7 +166,7 @@ $breakpoint-tablet: 900px;
   background: white;
   transition: 0.5s ease;
   transform: translateY(100vh);
-  background-color: #4fa2d2;
+  background-color: #193658;
 }
 
 #arousalShowAnimationBtn {
@@ -535,7 +535,7 @@ $breakpoint-tablet: 900px;
       flex: 1;
       margin-left: 15px;
       .Text {
-        width: "100%";
+        width: '100%';
         color: #ffffff;
         padding: 5px;
         @media (max-width: $breakpoint-tablet) {
