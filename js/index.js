@@ -362,21 +362,24 @@ window.addEventListener("DOMContentLoaded", function () {
   var HeartRateLowerCont = document.querySelector(".HeartRateLowerCont");
 
   StartHeartRateButton.addEventListener("click", () => {
-    HeartRateRunning = true;
-    StartHeartRateButton.style.display = "none";
-    PauseHeartRateButton.style.display = "block";
+    setTimeout(() => {
+      HeartRateRunning = true;
+    }, 1000);
+
+    // StartHeartRateButton.style.display = "none";
+    // PauseHeartRateButton.style.display = "block";
   });
-  PauseHeartRateButton.addEventListener("click", () => {
-    HeartRateRunning = false;
-    StartHeartRateButton.style.display = "block";
-    PauseHeartRateButton.style.display = "none";
-    if (hrvVideo.style.display != "none") hrvVideo.pause();
-    else
-      hrvIframe.contentWindow.postMessage(
-        '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
-        "*"
-      );
-  });
+  // PauseHeartRateButton.addEventListener("click", () => {
+  //   HeartRateRunning = false;
+  //   StartHeartRateButton.style.display = "block";
+  //   PauseHeartRateButton.style.display = "none";
+  //   if (hrvVideo.style.display != "none") hrvVideo.pause();
+  //   else
+  //     hrvIframe.contentWindow.postMessage(
+  //       '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+  //       "*"
+  //     );
+  // });
 
   HeartRateShowAnimationBtn.addEventListener("click", () => {
     hrvVideoContainer.style.display = "block";
