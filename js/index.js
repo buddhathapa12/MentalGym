@@ -567,6 +567,9 @@ var hev_lf_dominantCount = 0;
 var multi_lf_dominantCount = 0;
 var balance_lf_dominantCount = 0;
 
+var multiChannelBatteryGraph = document.querySelector(
+  "#multiChannelBatteryGraph"
+);
 function handleMessage(msg) {
   if (curActive == -1) return;
   data = JSON.parse(msg.data);
@@ -1032,21 +1035,22 @@ function handleMessage(msg) {
     var hf = parseFloat(data.values[ind].h_p_p_e);
     if (lf > hf && data.values[ind].l_p_p_e > vlf) multi_lf_dominantCount++;
     var lfdominant = parseFloat((multi_lf_dominantCount / (time / 1000)) * 100);
-    multiChannelBar.series[0].update(
-      {
-        data: [
-          {
-            y: lfdominant,
-          },
-          {
-            y: 100 - lfdominant,
-          },
-        ],
-      },
-      true,
-      false,
-      false
-    );
+    multiChannelBatteryGraph.style.height = lfdominant + "%";
+    // multiChannelBar.series[0].update(
+    //   {
+    //     data: [
+    //       {
+    //         y: lfdominant,
+    //       },
+    //       {
+    //         y: 100 - lfdominant,
+    //       },
+    //     ],
+    //   },
+    //   true,
+    //   false,
+    //   false
+    // );
     multichannelbargraphvalue.innerHTML = lfdominant.toFixed(1);
     time += 1000;
   }
@@ -2025,45 +2029,46 @@ function loadMultiChannel() {
     ],
   });
   if (multiChannelBar != null) return;
-  multiChannelBar = Highcharts.chart("MultiChannelBarGraph", {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: "pie",
-      backgroundColor: "rgba(0,0,0,0)",
+  // multiChannelBatteryGraph.style.height = 100 + "%";
+  // multiChannelBar = Highcharts.chart("MultiChannelBarGraph", {
+  //   chart: {
+  //     plotBackgroundColor: null,
+  //     plotBorderWidth: null,
+  //     plotShadow: false,
+  //     type: "pie",
+  //     backgroundColor: "rgba(0,0,0,0)",
 
-      height: 130,
-      width: 100,
-    },
-    title: {
-      text: "%lf dominant",
-      style: {
-        color: "#ffffff",
-        fontSize: "14px",
-      },
-    },
-    series: [
-      {
-        name: "Value",
-        colorByPoint: true,
-        animation: false,
+  //     height: 130,
+  //     width: 100,
+  //   },
+  //   title: {
+  //     text: "%lf dominant",
+  //     style: {
+  //       color: "#ffffff",
+  //       fontSize: "14px",
+  //     },
+  //   },
+  //   series: [
+  //     {
+  //       name: "Value",
+  //       colorByPoint: true,
+  //       animation: false,
 
-        data: [
-          {
-            name: "%lf dominant",
-            y: 100.0,
-            color: "#90ed7d",
-          },
-          {
-            name: "",
-            y: 0,
-            color: "transparent",
-          },
-        ],
-      },
-    ],
-  });
+  //       data: [
+  //         {
+  //           name: "%lf dominant",
+  //           y: 100.0,
+  //           color: "#90ed7d",
+  //         },
+  //         {
+  //           name: "",
+  //           y: 0,
+  //           color: "transparent",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // });
 }
 
 function goback() {

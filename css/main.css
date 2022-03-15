@@ -816,7 +816,7 @@ h3 {
 }
 
 .HeartRateCont .HeartRateBodyCont .HeartRateBody2 .Text {
-  width: '100%';
+  width: "100%";
   color: #ffffff;
   padding: 5px;
 }
@@ -1692,6 +1692,10 @@ h3 {
   }
 }
 
+.multichannelCont .multiChannelbreathsCont {
+  margin: auto;
+}
+
 .multichannelCont .multiChannelbreathsCont .pacerButtons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1774,6 +1778,61 @@ h3 {
       -ms-flex-direction: column;
           flex-direction: column;
   max-width: 100px;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont .multiText {
+  color: #ffffff;
+  text-align: center;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont .multi-battery-head {
+  width: 30px;
+  height: 10px;
+  background: #4fa2d2;
+  border: 2px solid rgba(0, 107, 139, 0.5);
+  margin: 0 auto;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont .multi-battery-body {
+  width: 100px;
+  height: 200px;
+  background: #4fa2d2;
+  border: 2px solid rgba(0, 107, 139, 0.5);
+  position: relative;
+  margin: 0 auto;
+  border-radius: 18px;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont i.fa-bolt {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  left: 38%;
+  top: 40%;
+  z-index: 1;
+  -webkit-animation: battery-bolt 2s linear infinite;
+          animation: battery-bolt 2s linear infinite;
+}
+
+.multichannelCont .multiChannelbreathsCont .pacerButtons .multilf .multiBatteryCont .multi-charge {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 14px;
+  background: #90ed7d;
+  -webkit-animation: battery-charge 8s linear infinite;
+          animation: battery-charge 8s linear infinite;
 }
 
 #iframe_id {
