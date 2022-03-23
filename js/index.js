@@ -626,8 +626,8 @@ function handleMessage(msg) {
         }
       }
       if (arousalChart.series[0].data.length >= itemsCount)
-        arousalChart.series[0].addPoint([time, val], true, true, false);
-      else arousalChart.series[0].addPoint([time, val], true, false, false);
+        arousalChart.series[0].addPoint([time, val], true, true);
+      else arousalChart.series[0].addPoint([time, val], true, false);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
       if (initArousal > val) {
         if (arousalRewardPoint == null) {
@@ -651,8 +651,8 @@ function handleMessage(msg) {
     if (data.values[ind].hr != null) {
       var val = parseInt(data.values[ind].hr);
       if (hrvChart.series[0].data.length >= itemsCount)
-        hrvChart.series[0].addPoint([time, val], true, true, false);
-      else hrvChart.series[0].addPoint([time, val], true, false, false);
+        hrvChart.series[0].addPoint([time, val], true, true);
+      else hrvChart.series[0].addPoint([time, val], true, false);
 
       time += 1000;
 
@@ -748,7 +748,7 @@ function handleMessage(msg) {
         else
           tempvalue.innerHTML =
             (((val / 100) * 9) / 5 + 32).toFixed(2) + " <sup>o</sup>F";
-        tempChart.series[0].addPoint([time, val / 100], true, false, false);
+        tempChart.series[0].addPoint([time, val / 100], true, false);
       } else {
         if (TempVideoCont.getBoundingClientRect().width != 0) {
           if (initTemp > val) {
@@ -805,7 +805,7 @@ function handleMessage(msg) {
           bodyRelaxationPoint.innerHTML = bodyRelaxationRewardPoint;
         }
         if (tempChart.series[0].data.length >= itemsCount) {
-          tempChart.series[0].addPoint([time, val / 100], true, true, false);
+          tempChart.series[0].addPoint([time, val / 100], true, true);
           tempChart.series[1].addPoint(
             [time, ((val / 100) * 9) / 5 + 32],
             true,
@@ -813,11 +813,10 @@ function handleMessage(msg) {
             false
           );
         } else {
-          tempChart.series[0].addPoint([time, val / 100], true, false, false);
+          tempChart.series[0].addPoint([time, val / 100], true, false);
           tempChart.series[1].addPoint(
             [time, ((val / 100) * 9) / 5 + 32],
             true,
-            false,
             false
           );
         }
@@ -869,21 +868,18 @@ function handleMessage(msg) {
           bloodPressureChart2.series[0].addPoint(
             [time, val],
             true,
-            true,
-            false
+            true
           );
         } else {
           bloodPressureChart2.series[0].addPoint(
             [time, val],
             true,
-            false,
             false
           );
         }
       } else {
         bloodPressureChart2.series[0].addPoint(
           [time, val],
-          false,
           false,
           false
         );
@@ -896,12 +892,11 @@ function handleMessage(msg) {
         breatheData.shift();
       }
       if (bloodPressureChart2.series[1].data.length >= itemsCount)
-        bloodPressureChart2.series[1].addPoint([time, val2], true, true, false);
+        bloodPressureChart2.series[1].addPoint([time, val2], true, true);
       else
         bloodPressureChart2.series[1].addPoint(
           [time, val2],
           true,
-          false,
           false
         );
 
@@ -910,14 +905,12 @@ function handleMessage(msg) {
         bloodPressureChart1_2.series[0].addPoint(
           [time, val],
           true,
-          true,
-          false
+          true
         );
       else
         bloodPressureChart1_2.series[0].addPoint(
           [time, val],
           true,
-          false,
           false
         );
 
@@ -943,7 +936,6 @@ function handleMessage(msg) {
         ],
       },
       true,
-      false,
       false
     );
     BloodPressureBarGraphValue.innerHTML = lfdominant.toFixed(1);
@@ -990,12 +982,11 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].tmp);
       multitempvalue.innerHTML = (val / 100).toFixed(1);
       if (multiTempChart.series[0].data.length >= itemsCount)
-        multiTempChart.series[0].addPoint([time, val / 100], true, true, false);
+        multiTempChart.series[0].addPoint([time, val / 100], true, true);
       else
         multiTempChart.series[0].addPoint(
           [time, val / 100],
           true,
-          false,
           false
         );
     }
@@ -1006,14 +997,12 @@ function handleMessage(msg) {
         multiArousalChart.series[0].addPoint(
           [time, val / 100],
           true,
-          true,
-          false
+          true
         );
       else
         multiArousalChart.series[0].addPoint(
           [time, val / 100],
           true,
-          false,
           false
         );
     }
@@ -1021,12 +1010,11 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].hr) * 100;
       beatvalue.innerHTML = (val / 100).toFixed(1);
       if (multiBeatChart.series[0].data.length >= itemsCount)
-        multiBeatChart.series[0].addPoint([time, val / 100], true, true, false);
+        multiBeatChart.series[0].addPoint([time, val / 100], true, true);
       else
         multiBeatChart.series[0].addPoint(
           [time, val / 100],
           true,
-          false,
           false
         );
     }
