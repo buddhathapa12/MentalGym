@@ -18,7 +18,8 @@
 
     <div class="introPage">
         <img class="backgroundLogo" src="/img/logo.png">
-        <img class="backgroundImage" src="./img/sea.jpg">
+        <!-- <img class="backgroundImage" src="./img/sea.jpg"> -->
+        <div class="backgroundImage"></div>
         <h1>Welcome to <br /> Dr. Yuval Odeds’ MentalGym<sup>TM</sup>
         </h1>
 
@@ -40,16 +41,16 @@
             <br /> לתחילת האימון בחרו בגרף הרצוי
         </h4>
         <div class="TrainingOptions">
-            <div class="trainOption" id="StartAurosalButton">Mental Relaxation
-                <br /> הרפיה נפשית
+            <div class="trainOption" id="StartAurosalButton">Practice Mental Relaxation
+                <br /> תרגול הרפיה נפשית
             </div>
-            <div class="trainOption">
-                Mind Body Balance
-                <br /> איזון גוף נפש
+            <div class="trainOption" id="StartHeartRateButton">
+                Practice Mind Body Balance
+                <br /> תרגל איזון גוף נפש
             </div>
             <div class="trainOption" id="StartTempButton">
-                Body Relaxation
-                </br /> הרפיית הגוף
+                Practice Body Relaxation
+                </br /> תרגול הרפיית גוף
 
             </div>
         </div>
@@ -193,7 +194,7 @@
                 Heart rate variability (HRV) training-אימון להסדרת הדופק והגברת הרוגע
             </h1>
             <div class="HeartRateButtons">
-                <div class="arousalSinglebutton" id="StartHeartRateButton">
+                <!-- <div class="arousalSinglebutton" id="StartHeartRateButton">
                     <div class="icon"><i class="fas fa-play-circle"></i></div>
                     <div class="text">
                         Start session-<br /> התחל באימון
@@ -204,7 +205,7 @@
                     <div class="text">
                         Pause session-<br /> הפסק אימון
                     </div>
-                </div>
+                </div> -->
 
                 <div class="arousalSinglebutton PlayBtn">
                     <div class="icon"><i class="fas fa-play"></i>
@@ -750,7 +751,16 @@
         <div class="multiChannelbreathsCont">
             <div class="pacerButtons">
                 <div class="multilf">
-                    <div class="MultiChannelBarGraph" id="MultiChannelBarGraph"></div>
+                  <div class="multiBatteryCont">
+                    <div class="multiText">%lf dominant</div>
+                    <div class="multiBattery">
+                        <div class="multi-battery-head"></div>
+                        <div class="multi-battery-body">
+                            <div class="multi-charge" id="multiChannelBatteryGraph"></div>
+                        </div>
+                    </div>
+                  </div>
+                    
                     <div class="multichannelbargraphvalue"></div>
                 </div>
                 <div class="HeartPacerSlider">
