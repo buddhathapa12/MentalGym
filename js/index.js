@@ -865,24 +865,12 @@ function handleMessage(msg) {
           bloodPressureChart2.series[0].data[0].x <
           bloodPressureChart2.series[1].data[0].x
         ) {
-          bloodPressureChart2.series[0].addPoint(
-            [time, val],
-            true,
-            true
-          );
+          bloodPressureChart2.series[0].addPoint([time, val], true, true);
         } else {
-          bloodPressureChart2.series[0].addPoint(
-            [time, val],
-            true,
-            false
-          );
+          bloodPressureChart2.series[0].addPoint([time, val], true, false);
         }
       } else {
-        bloodPressureChart2.series[0].addPoint(
-          [time, val],
-          false,
-          false
-        );
+        bloodPressureChart2.series[0].addPoint([time, val], false, false);
       }
     }
     if (data.values[ind].re != null) {
@@ -893,26 +881,12 @@ function handleMessage(msg) {
       }
       if (bloodPressureChart2.series[1].data.length >= itemsCount)
         bloodPressureChart2.series[1].addPoint([time, val2], true, true);
-      else
-        bloodPressureChart2.series[1].addPoint(
-          [time, val2],
-          true,
-          false
-        );
+      else bloodPressureChart2.series[1].addPoint([time, val2], true, false);
 
       var val = parseInt(data.values[ind].pr);
       if (bloodPressureChart1_2.series[0].data.length >= itemsCount)
-        bloodPressureChart1_2.series[0].addPoint(
-          [time, val],
-          true,
-          true
-        );
-      else
-        bloodPressureChart1_2.series[0].addPoint(
-          [time, val],
-          true,
-          false
-        );
+        bloodPressureChart1_2.series[0].addPoint([time, val], true, true);
+      else bloodPressureChart1_2.series[0].addPoint([time, val], true, false);
 
       time += 1000;
     }
@@ -983,40 +957,21 @@ function handleMessage(msg) {
       multitempvalue.innerHTML = (val / 100).toFixed(1);
       if (multiTempChart.series[0].data.length >= itemsCount)
         multiTempChart.series[0].addPoint([time, val / 100], true, true);
-      else
-        multiTempChart.series[0].addPoint(
-          [time, val / 100],
-          true,
-          false
-        );
+      else multiTempChart.series[0].addPoint([time, val / 100], true, false);
     }
     if (data.values[ind].gs != null) {
       var val = parseInt(data.values[ind].gs);
       arousalvalue.innerHTML = (val / 100).toFixed(1);
       if (multiArousalChart.series[0].data.length >= itemsCount)
-        multiArousalChart.series[0].addPoint(
-          [time, val / 100],
-          true,
-          true
-        );
-      else
-        multiArousalChart.series[0].addPoint(
-          [time, val / 100],
-          true,
-          false
-        );
+        multiArousalChart.series[0].addPoint([time, val / 100], true, true);
+      else multiArousalChart.series[0].addPoint([time, val / 100], true, false);
     }
     if (data.values[ind].hr != null) {
       var val = parseInt(data.values[ind].hr) * 100;
       beatvalue.innerHTML = (val / 100).toFixed(1);
       if (multiBeatChart.series[0].data.length >= itemsCount)
         multiBeatChart.series[0].addPoint([time, val / 100], true, true);
-      else
-        multiBeatChart.series[0].addPoint(
-          [time, val / 100],
-          true,
-          false
-        );
+      else multiBeatChart.series[0].addPoint([time, val / 100], true, false);
     }
     var vlf = parseFloat(data.values[ind].v_p_p_e);
     var lf = parseFloat(data.values[ind].l_p_p_e);
@@ -1791,7 +1746,7 @@ function loadArousal() {
           enabled: false,
         },
         type: "spline",
-        color: "#ff0000",
+        // color: "#ff0000",
       },
     ],
   });
