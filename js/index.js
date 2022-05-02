@@ -28,7 +28,8 @@ var isSoundTriggered = true;
 var isNotePositionTriggered = true;
 var notePosition;
 var previousArousalValue = null;
-var noteList = [
+var isPreviousArousalValueReplaced = false;
+const noteList = [
   "C2",
   "D2",
   "E2",
@@ -50,14 +51,46 @@ var noteList = [
   "G4",
   "A4",
   "B4",
-  "C5",
-  "D5",
-  "E5",
-  "F5",
-  "G5",
-  "A5",
-  "B5",
 ];
+
+// var noteList = [
+//   "C2",
+//   "C#2",
+//   "D2",
+//   "D#2",
+//   "E2",
+//   "F2",
+//   "F#2",
+//   "G2",
+//   "G#2",
+//   "A2",
+//   "A#2",
+//   "B2",
+//   "C3",
+//   "C#3",
+//   "D3",
+//   "D#3",
+//   "E3",
+//   "F3",
+//   "F#3",
+//   "G3",
+//   "G#3",
+//   "A3",
+//   "A#3",
+//   "B3",
+//   "C4",
+//   "C#4",
+//   "D4",
+//   "D#4",
+//   "E4",
+//   "F4",
+//   "F#4",
+//   "G4",
+//   "G#4",
+//   "A4",
+//   "A#4",
+//   "B4",
+// ];
 
 var Charge = document.querySelector("#charge");
 window.addEventListener("DOMContentLoaded", function () {
@@ -643,7 +676,7 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].gs);
       if (initArousal == null) {
         initArousal = val;
-        notePosition = 14;
+        notePosition = 21;
         time = 0;
         arousalChart.series[0].update({
           zones: [
@@ -685,6 +718,9 @@ function handleMessage(msg) {
       if (arousalChart.series[0].data.length >= itemsCount)
         arousalChart.series[0].addPoint([time, val], true, true);
       else arousalChart.series[0].addPoint([time, val], true, false);
+      // console.log(val);
+      var normalizedValue = (val - 25000) / (30000 - 25000);
+      notePosition = Math.floor(normalizedValue * noteList.length);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
 
       if (initArousal > val) {
@@ -701,9 +737,6 @@ function handleMessage(msg) {
         // }
         if (arousalRewardPoint != null && initArousal < val) {
           clearTimeout(arousalRewardPoint);
-          // if (isSoundEnable) {
-          //   EmitSound(notePosition);
-          // }
           arousalRewardPoint = null;
         }
       }
@@ -711,14 +744,20 @@ function handleMessage(msg) {
       if (isSoundEnable) {
         EmitSound(notePosition);
       }
-      if (previousArousalValue != null) {
-        if (previousArousalValue < val) {
-          IncreaseNotePosition();
-        } else if (previousArousalValue > val) {
-          DecreaseNotePosition();
-        }
+      // if (previousArousalValue != null) {
+      //   if (previousArousalValue < val) {
+      //     IncreaseNotePosition();
+      //   } else if (previousArousalValue > val) {
+      //     DecreaseNotePosition();
+      //   }
+      // }
+      if (!isPreviousArousalValueReplaced) {
+        previousArousalValue = val;
+        isPreviousArousalValueReplaced = true;
+        setTimeout(() => {
+          isPreviousArousalValueReplaced = false;
+        }, 500);
       }
-      previousArousalValue = val;
       mentalRelaxationPoint.innerHTML = mentalRelaxationRewardPoint;
       time += 100;
     }
@@ -2271,7 +2310,6 @@ function shrink(e) {
 }
 
 function EmitSound(notePosition) {
-  console.log(notePosition);
   if (!isSoundTriggered) {
     return;
   }
@@ -2283,24 +2321,29 @@ function EmitSound(notePosition) {
   }, 500);
 }
 
-function IncreaseNotePosition() {
-  if (!isNotePositionTriggered) {
-    return;
-  }
-  isNotePositionTriggered = false;
-  notePosition++;
-  setTimeout(() => {
-    isNotePositionTriggered = true;
-  }, 500);
-}
+// function IncreaseNotePosition() {
+//   if (!isNotePositionTriggered) {
+//     return;
+//   }
+//   isNotePositionTriggered = false;
+//   if (notePosition < noteList.length) {
+//     notePosition++;
+//   }
 
-function DecreaseNotePosition() {
-  if (!isNotePositionTriggered) {
-    return;
-  }
-  isNotePositionTriggered = false;
-  notePosition--;
-  setTimeout(() => {
-    isNotePositionTriggered = true;
-  }, 500);
-}
+//   setTimeout(() => {
+//     isNotePositionTriggered = true;
+//   }, 1000);
+// }
+
+// function DecreaseNotePosition() {
+//   if (!isNotePositionTriggered) {
+//     return;
+//   }
+//   isNotePositionTriggered = false;
+//   if (notePosition > 0) {
+//     notePosition--;
+//   }
+//   setTimeout(() => {
+//     isNotePositionTriggered = true;
+//   }, 1000);
+// }
