@@ -676,7 +676,6 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].gs);
       if (initArousal == null) {
         initArousal = val;
-        notePosition = 21;
         time = 0;
         arousalChart.series[0].update({
           zones: [
@@ -721,6 +720,7 @@ function handleMessage(msg) {
       // console.log(val);
       var normalizedValue = (val - 25000) / (30000 - 25000);
       notePosition = Math.floor(normalizedValue * noteList.length);
+      console.log(notePosition);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
 
       if (initArousal > val) {
