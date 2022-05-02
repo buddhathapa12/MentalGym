@@ -23,6 +23,41 @@ var lastReadMessage = 0;
 var curActive = -1;
 var arousalChart = null;
 var mentalRelaxationRewardPoint = 0;
+var isSoundEnable = false;
+var isSoundTriggered = true;
+var isNotePositionTriggered = true;
+var notePosition;
+var previousArousalValue = null;
+var noteList = [
+  "C2",
+  "D2",
+  "E2",
+  "F2",
+  "G2",
+  "A2",
+  "B2",
+  "C3",
+  "D3",
+  "E3",
+  "F3",
+  "G3",
+  "A3",
+  "B3",
+  "C4",
+  "D4",
+  "E4",
+  "F4",
+  "G4",
+  "A4",
+  "B4",
+  "C5",
+  "D5",
+  "E5",
+  "F5",
+  "G5",
+  "A5",
+  "B5",
+];
 
 var Charge = document.querySelector("#charge");
 window.addEventListener("DOMContentLoaded", function () {
@@ -241,6 +276,27 @@ window.addEventListener("DOMContentLoaded", function () {
     AurosalRunning = true;
     // PauseAurosalButton.style.display = "block"
     // StartAurosalButton.style.display = "none"
+  });
+
+  var StartAurosalSoundButton = document.querySelector(
+    "#StartAurosalSoundButton"
+  );
+  var PauseAurosalSoundButton = document.querySelector(
+    "#PauseAurosalSoundButton"
+  );
+
+  StartAurosalSoundButton.addEventListener("click", () => {
+    isSoundEnable = true;
+    // const synth = new Tone.Synth().toDestination();
+    // synth.triggerAttackRelease(noteList[notePosition], "8n");
+    PauseAurosalSoundButton.style.display = "block";
+    StartAurosalSoundButton.style.display = "none";
+  });
+
+  PauseAurosalSoundButton.addEventListener("click", () => {
+    isSoundEnable = false;
+    StartAurosalSoundButton.style.display = "block";
+    PauseAurosalSoundButton.style.display = "none";
   });
 
   var IncInhaleBtn = document.querySelector("#IncInhaleBtn");
@@ -587,6 +643,7 @@ function handleMessage(msg) {
       var val = parseInt(data.values[ind].gs);
       if (initArousal == null) {
         initArousal = val;
+        notePosition = 14;
         time = 0;
         arousalChart.series[0].update({
           zones: [
@@ -629,19 +686,39 @@ function handleMessage(msg) {
         arousalChart.series[0].addPoint([time, val], true, true);
       else arousalChart.series[0].addPoint([time, val], true, false);
       ArousalVal.innerHTML = "AROUSAL LEVEL = " + val;
+
       if (initArousal > val) {
+        // DecreaseNotePosition();
         if (arousalRewardPoint == null) {
           arousalRewardPoint = setTimeout(() => {
             mentalRelaxationRewardPoint += 0.5;
             arousalRewardPoint = null;
           }, 5000);
         }
-      } else if (arousalRewardPoint != null && initArousal < val) {
-        clearTimeout(arousalRewardPoint);
-        arousalRewardPoint = null;
+      } else {
+        // if (initArousal < val) {
+        //   IncreaseNotePosition();
+        // }
+        if (arousalRewardPoint != null && initArousal < val) {
+          clearTimeout(arousalRewardPoint);
+          // if (isSoundEnable) {
+          //   EmitSound(notePosition);
+          // }
+          arousalRewardPoint = null;
+        }
       }
-      // previousTempArousalValue = tempArousalValue;
-      // tempArousalValue = val;
+
+      if (isSoundEnable) {
+        EmitSound(notePosition);
+      }
+      if (previousArousalValue != null) {
+        if (previousArousalValue < val) {
+          IncreaseNotePosition();
+        } else if (previousArousalValue > val) {
+          DecreaseNotePosition();
+        }
+      }
+      previousArousalValue = val;
       mentalRelaxationPoint.innerHTML = mentalRelaxationRewardPoint;
       time += 100;
     }
@@ -2191,4 +2268,39 @@ function shrink(e) {
       parent.getBoundingClientRect().height - 20,
       (doAnimation = false)
     );
+}
+
+function EmitSound(notePosition) {
+  console.log(notePosition);
+  if (!isSoundTriggered) {
+    return;
+  }
+  isSoundTriggered = false;
+  const synth = new Tone.Synth().toDestination();
+  synth.triggerAttackRelease(noteList[notePosition], "4n");
+  setTimeout(() => {
+    isSoundTriggered = true;
+  }, 500);
+}
+
+function IncreaseNotePosition() {
+  if (!isNotePositionTriggered) {
+    return;
+  }
+  isNotePositionTriggered = false;
+  notePosition++;
+  setTimeout(() => {
+    isNotePositionTriggered = true;
+  }, 500);
+}
+
+function DecreaseNotePosition() {
+  if (!isNotePositionTriggered) {
+    return;
+  }
+  isNotePositionTriggered = false;
+  notePosition--;
+  setTimeout(() => {
+    isNotePositionTriggered = true;
+  }, 500);
 }
